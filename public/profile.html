@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile | Sweet Scoops</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍦</text></svg>">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+            min-height: 100vh;
+        }
+
+        .profile-wrapper {
+            max-width: 1000px;
+            margin: 70px auto;
+            background: white;
+            border-radius: 22px;
+            padding: 45px;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.18);
+        }
+
+        /* HEADER */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .profile-header h2 {
+            font-family: "Pacifico", cursive;
+            font-size: 40px;
+            color: #ff1493;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .profile-header p {
+            font-size: 15px;
+            letter-spacing: 0.6px;
+            color: #666;
+        }
+
+        /* USER CARD */
+        .user-card {
+            background: linear-gradient(135deg, #fff0f6, #ffe4ec);
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 45px;
+            box-shadow: inset 0 0 0 1px rgba(255,105,180,0.25);
+        }
+
+        .user-card h3 {
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            color: #ff1493;
+            margin-bottom: 6px;
+        }
+
+        .user-card p {
+            font-size: 14px;
+            letter-spacing: 0.4px;
+            color: #777;
+        }
+
+        /* ORDER TITLE */
+        .order-title {
+            font-family: "Pacifico", cursive;
+            font-size: 30px;
+            color: #ff1493;
+            letter-spacing: 0.9px;
+            margin-bottom: 18px;
+        }
+
+        /* TABLE */
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .order-table thead {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+        }
+
+        .order-table th {
+            padding: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+        }
+
+        .order-table td {
+            padding: 14px;
+            font-size: 14px;
+            letter-spacing: 0.4px;
+            color: #444;
+        }
+
+        .order-table tbody tr {
+            background: white;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .order-table tbody tr:hover {
+            background: #fff0f6;
+        }
+
+        .order-status {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: capitalize;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .profile-wrapper {
+                margin: 25px;
+                padding: 30px;
+            }
+
+            .profile-header h2 {
+                font-size: 34px;
+            }
+
+            .order-title {
+                font-size: 26px;
+            }
+
+            .order-table th,
+            .order-table td {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="profile-wrapper">
+
+    <div class="profile-header"> <h2>👤 My Profile</h2> <p>Sweet Scoops • Order History</p> </div> 
+    <div class="user-card"> <h3 id="username">User Name</h3> <p id="userEmail">user@email.com</p> </div>
+
+    <h3 class="order-title">🧾 Your Recent Orders</h3>
+
+    <table class="order-table">
+        <thead>
+            <tr>
+                <th>📅 Order Date</th>
+                <th>🍨 Items Ordered</th>
+                <th>💰 Total Paid (₹)</th>
+                <th>🚦 Order Status</th>
+            </tr>
+        </thead>
+        <tbody id="orderHistory">
+            <!-- Example content, JS will load real orders -->
+            <!--
+            <tr>
+                <td>04 Jan 2026</td>
+                <td>Chocolate Ice Cream, Waffle Cone</td>
+                <td>250</td>
+                <td><span class="order-status">Delivered ✅</span></td>
+            </tr>
+            -->
+        </tbody>
+    </table>
+
+</div>
+
+<script src="profile.js"></script>
+</body>
+</html>

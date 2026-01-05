@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍦</text></svg>">
+    <title>Sweet Scoops - Delight in Every Scoop! 🍦</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+   
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header  class="main-header">
+        <h1>Sweet Scoops 🍨 </h1>
+         <h3 id="welcome-user"></h3>
+
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#process" class="nav-link">Quality</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li><a href="profile.html" class="nav-link" id="profileLink">Profile</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                
+                 <li><a href="login1.html" class="nav-link" id="loginLink">Login</a></li>
+                  <li><a href="#" class="nav-link" id="logoutLink" style="display:none;">Logout</a></li>
+                <li><a href="#cart" onclick="toggleCart()"> Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+<div class="discount-banner">
+    🎉 Special Offer Today! Use code <strong>SWEET10</strong> / <strong>SCOOPS20</strong> / <strong>FLAT10</strong> / <strong>ICE50</strong> 🎉
+</div>
+
+
+<section class="hero" id="home">
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="icecreamback1.avif" class="d-block w-100 carousel-img-bg" alt="Sweet Scoops Flavor 1">
+                </div>
+            <div class="carousel-item">
+                <img src="icecreamback2.jpg" class="d-block w-100 carousel-img-bg" alt="Sweet Scoops Flavor 2">
+            </div>
+            <div class="carousel-item">
+                <img src="icecreamback3.jpg" class="d-block w-100 carousel-img-bg" alt="Sweet Scoops Flavor 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="hero-content">
+       <p class="welcome-text" id="welcomeText"></p>
+        <h2>Delight in Every Scoop!</h2>
+        <p>Fresh, creamy, and made with love – your favorite ice creams await.</p>
+        <button onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Explore Flavors</button>
+    </div>
+</section>
+
+    <section id="specials">
+
+    <h2 class="section-title">Today's Specials</h2>
+
+    <!-- NEW WRAPPER (DO NOT use .container here) -->
+    <div class="specials-wrapper">
+
+        <div class="special-grid">
+
+            <!-- CARD 1 -->
+            <div class="special-card" data-name="Cookie Ice Cream Sandwich" data-price="180">
+                <img src="icecream sandwich.jpg" alt="Ice Cream Sandwich">
+
+                <div class="special-card-content">
+                    <div>
+                        <h3>Cookie Ice Cream Sandwich</h3>
+                        <p>Homemade cookies and creamy filling. A classic!</p>
+                    </div>
+
+                    <p class="price">₹180</p>
+
+                    <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="special-card" data-name="Dairy-Free Coconut Bliss" data-price="200">
+                <img src="veganscoop.jpg" alt="Vegan Scoop">
+
+                <div class="special-card-content">
+                    <div>
+                        <h3>Dairy-Free Coconut Bliss</h3>
+                        <p>Rich and smooth vegan option using coconut milk.</p>
+                    </div>
+
+                    <p class="price">₹200</p>
+
+                    <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="special-card" data-name="Artisan Pistachio" data-price="220">
+                <img src="Pistachio.jpg" alt="Pistachio">
+
+                <div class="special-card-content">
+                    <div>
+                        <h3>Artisan Pistachio</h3>
+                        <p>Roasted Sicilian pistachios for an intense nutty flavor.</p>
+                    </div>
+
+                    <p class="price">₹220</p>
+
+                    <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+    <hr>
+    
+    <section class="container" id="menu">
+        <h2 class="section-title">Our Flavors</h2>
+        <div class="grid">
+            <div class="card" data-name="Classic Vanilla" data-price="120">
+                <img src="vanilla.jpg" alt="Vanilla">
+                <div class="card-content">
+                    <h3>Classic Vanilla</h3>
+                    <p>Timeless creamy goodness, always a classic favorite.</p>
+                </div>
+                <p class="price">₹120</p>
+                <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+            </div>
+            <div class="card" data-name="Chocolate Fudge" data-price="150">
+                <img src="chocolate fudge.jpg" alt="Chocolate">
+                <div class="card-content">
+                    <h3>Chocolate Fudge</h3>
+                    <p>Rich, dark chocolate indulgence with swirls of fudge.</p>
+                </div>
+                <p class="price">₹150</p>
+                <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+            </div>
+            <div class="card" data-name="Strawberry Swirl" data-price="140">
+                <img src="Strawberry Swirl.jpg" alt="Strawberry">
+                <div class="card-content">
+                    <h3>Strawberry Swirl</h3>
+                    <p>Fresh, tangy strawberries swirled in sweet cream.</p>
+                </div>
+                <p class="price">₹140</p>
+                <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+            </div>
+            <div class="card" data-name="Mint Chocolate Chip" data-price="160">
+                <img src="Mint Chocolate Chip.jpg" alt="Mint">
+                <div class="card-content">
+                    <h3>Mint Chocolate Chip</h3>
+                    <p>Cool mint flavor loaded with crisp chocolate chips.</p>
+                </div>
+                <p class="price">₹160</p>
+                <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+            </div>
+            <div class="card" data-name="Rocky Road" data-price="170">
+                <img src="Rocky-Road-Ice-Cream-1-5.jpg" alt="Rocky Road">
+                <div class="card-content">
+                    <h3>Rocky Road</h3>
+                    <p>Chocolate, crunchy almonds, and fluffy marshmallows.</p> 
+                </div>
+                <p class="price">₹170</p>
+                <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+            </div>
+            <div class="card" data-name="Coffee Lovers" data-price="160">
+                <img src="Coffee Lovers.jpg" alt="Coffee">
+                <div class="card-content">
+                    <h3>Coffee Lovers</h3>
+                    <p>Rich coffee ice cream delight.</p>
+                </div>
+                <p class="price">₹160</p>
+                <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+            </div>
+            <div class="card" data-name="Cookies & Cream" data-price="150">
+                <img src="Cookies & Cream.jpg" alt="Cookies & Cream">
+                <div class="card-content">
+                    <h3>Cookies & Cream</h3>
+                    <p>Crunchy cookies in creamy base.</p>
+                </div>
+                <p class="price">₹150</p>
+                <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+            </div>
+            <div class="card" data-name="Butter Pecan" data-price="170">
+                <img src="Butter Pecan.jpg" alt="Butter Pecan">
+                <div class="card-content">
+                    <h3>Butter Pecan</h3>
+                    <p>Nutty buttery ice cream.</p>
+                </div>
+                <p class="price">₹170</p>
+                <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+            </div>
+            <div class="card" data-name="Mango Delight" data-price="140">
+                <img src="Mango Delight.jpg" alt="Mango">
+                <div class="card-content">
+                    <h3>Mango Delight</h3>
+                    <p>Refreshing mango flavor.</p>
+                </div>
+                <p class="price">₹140</p>
+                <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+            </div>
+            <div class="card" data-name="Rum Raisin" data-price="160">
+                <img src="Rum-Raisin-Ice-Cream-5.2-683x1024.jpg" alt="Rum Raisin">
+                <div class="card-content">
+                    <h3>Rum Raisin</h3>
+                    <p>Classic rum & raisin ice cream.</p>
+                </div>
+                <p class="price">₹160</p>
+                <div class="card-actions">
+                        <button class="add-btn" onclick="addItem(this)">Add to Cart</button>
+
+                        <div class="qty-box hidden">
+                            <button onclick="updateQty(this, -1)">−</button>
+                            <span class="qty">1</span>
+                            <button onclick="updateQty(this, 1)">+</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+    
+    <section class="container" id="process">
+        <h2 class="section-title">Our Quality & Craft</h2>
+        <p style="text-align:center; max-width:800px; margin:auto; margin-bottom: 2rem; color:var(--text-light);">We take pride in our small-batch process, ensuring the highest quality, creamiest texture, and most vibrant flavors possible.</p>
+        
+        <div class="process-grid">
+            <div class="process-step">
+                <i class="fas fa-seedling"></i>
+                <h4>Farm-Fresh Ingredients</h4>
+                <p>We source local, high-quality milk and cream for a truly rich base.</p>
+            </div>
+            <div class="process-step">
+                <i class="fas fa-temperature-low"></i>
+                <h4>Slow Churning</h4>
+                <p>Our slow-churning process minimizes air, giving you that dense, creamy texture.</p>
+            </div>
+            <div class="process-step">
+                <i class="fas fa-heart"></i>
+                <h4>Hand-Crafted Love</h4>
+                <p>Every mix-in, swirl, and topping is added by hand with care.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title" style="color:#fff;">What Our Customers Say</h2>
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <blockquote>"The best chocolate fudge I've ever had! It's rich, dense, and perfectly balanced. The staff is always so friendly."</blockquote>
+                    <cite>- Priya S.</cite>
+                </div>
+                <div class="review-card">
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <blockquote>"Sweet Scoops is my weekend treat. The Strawberry Swirl tastes like summer in a cone. Highly recommend for families!"</blockquote>
+                    <cite>- Rohan K.</cite>
+                </div>
+                <div class="review-card">
+                    <div class="rating">⭐⭐⭐⭐</div>
+                    <blockquote>"Great variety of flavors, even some unique seasonal ones. The coffee ice cream is strong and incredibly smooth."</blockquote>
+                    <cite>- Jasmine A.</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="container" id="about">
+        <h2 class="section-title">Our Story</h2>
+        <p style="text-align:center; max-width:700px; margin:auto; color:var(--text-light);">At Sweet Scoops, we believe ice cream is happiness served in a cone! Our mission is to bring joy with every bite, using only the finest ingredients and lots of love. We started this shop in 2023 with a single mixer and a passion for frozen treats, and we've been churning out smiles ever since.</p>
+    </section>
+
+    <hr>
+    
+    <section class="container" id="contact">
+        <h2 class="section-title">Visit & Connect</h2>
+        <p style="text-align:center; margin-bottom: 1rem;">📍 Address: Delhi-NCR, Meerut Rd, Ghaziabad, Uttar Pradesh 201206</p>
+        <p style="text-align:center;">📧 Email: hello@sweetscoops.com | 📞 Phone: +91 9876543210</p>
+    </section>
+
+   <div class="cart" id="cart">
+    <button class="cart-close" onclick="toggleCart()">❌</button>
+    <h2>Your Cart</h2>
+
+    <ul id="cart-items">
+        <li class="cart-empty" style="text-align: center; color: #999;">Your cart is empty.</li>
+    </ul>
+
+    <p class="cart-total">Total: ₹<span id="cart-total">0</span></p>
+
+    <div class="discount-box">
+        <p class="cart-discount">Discount: ₹<span id="discount-amount">0</span></p>
+        <input type="text" id="discount-code" placeholder="Enter discount code"><br>
+       <button onclick="applyDiscount()">Apply</button>
+    </div>
+
+    <p class="cart-final">Final Total: ₹<span id="final-total">0</span></p>
+    <div id="qr-container" style=" text-align:center; margin-top: 1rem;">
+        <p>Scan to Pay:</p>
+        <img id="qr-code" src="kashikaqr.jpeg" alt="QR Code" style="width:200px; height:200px;">
+    </div>
+    <button class="checkout" onclick="checkout()">✅ Proceed to Checkout</button>
+</div>
+
+    <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Sweet Scoops</h4>
+                <p>Delivering happiness, one scoop at a time. Quality ingredients, unforgettable taste.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Hours</h4>
+                <p>Mon - Fri: 11:00 AM - 10:00 PM</p>
+                <p>Sat - Sun: 10:00 AM - 11:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="current-year"></span> Sweet Scoops. All rights reserved. | Crafted with 💖
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+    crossorigin="anonymous"></script>
+    <script src="script1.js"></script>
+</body>
+</html>

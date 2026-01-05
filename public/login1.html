@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Scoops | Login</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍦</text></svg>">
+
+
+    <style>
+        :root {
+            --primary-pink-light: #FFC0CB;
+            --primary-pink-medium: #FF69B4;
+            --primary-pink-dark: #C71585;
+            --pink-dark-rgb: 199, 21, 133;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-pink-light), var(--primary-pink-medium));
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            width: 360px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(var(--pink-dark-rgb), 0.25);
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--primary-pink-dark);
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+        input {
+            border: 2px solid var(--primary-pink-light);
+        }
+
+        button {
+            background: var(--primary-pink-medium);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: var(--primary-pink-dark);
+        }
+
+        .extra-links a {
+            color: var(--primary-pink-dark);
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #signupForm, #forgotForm {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LOGIN -->
+    <form id="loginForm" novalidate>
+        <h2>🍨 Login</h2>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+
+        <p class="extra-links">
+            <a onclick="showSignup()">Create Account</a>
+        </p>
+    </form>
+
+    <!-- SIGNUP -->
+    <form id="signupForm" novalidate>
+        <h2>🍨 Sign Up</h2>
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="password" name="password" placeholder="Create Password" required>
+        <input type="password" name="confirm" placeholder="Confirm Password" required>
+        <button type="submit">Sign Up</button>
+
+        <p class="extra-links">
+            <a onclick="showLogin()">Back to Login</a>
+        </p>
+    </form>
+
+</div>
+
+<script>
+    // Show / hide forms
+    const loginForm = document.getElementById("loginForm");
+    const signupForm = document.getElementById("signupForm");
+
+    function showSignup() {
+        loginForm.style.display = "none";
+        signupForm.style.display = "block";
+    }
+
+    function showLogin() {
+        signupForm.style.display = "none";
+        loginForm.style.display = "block";
+    }
+
+    // ---------------------- SIGNUP ----------------------
+    signupForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const name = this.elements["name"].value;
+        const email = this.elements["email"].value;
+        const password = this.elements["password"].value;
+        const confirm = this.elements["confirm"].value;
+
+        if (password !== confirm) {
+            alert("❌ Passwords do not match");
+            return;
+        }
+
+        try {
+            const res = await fetch("http://localhost:5000/signup", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, password })
+            });
+
+            const data = await res.json();
+            alert(data.msg);
+
+            if (data.success) showLogin();
+        } catch (err) {
+            alert("❌ Backend not reachable");
+            console.error(err);
+        }
+    });
+
+    // ---------------------- LOGIN ----------------------
+    loginForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const email = this.elements["email"].value;
+        const password = this.elements["password"].value;
+
+        try {
+            const res = await fetch("http://localhost:5000/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password })
+            });
+
+            const data = await res.json();
+            alert(data.msg);
+
+            if (data.success) {
+                // Extract username from backend message
+                const nameMatch = data.msg.match(/Welcome back, (.+)!/);
+                const username = nameMatch ? nameMatch[1] : "";
+
+                // ✅ Store login info in localStorage
+                localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("username", username);
+
+                // Redirect to homepage
+                window.location.href = "index.html";
+            }
+        } catch (err) {
+            alert("❌ Backend not reachable");
+            console.error(err);
+        }
+    });
+</script>
+
+</body>
+</html>
